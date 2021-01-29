@@ -14,8 +14,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //запускаем функцию
+        setupAppearance()
         return true
     }
+    
+    //изменим цвет NavigationBar
+    func setupAppearance() {
+        let appearance = UINavigationBar.appearance()
+        appearance.barTintColor = .blue
+        //цвет кнопок
+        appearance.tintColor = .green
+        // меняем цвет текста
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.purple]
+        
+        
+        //переделаем все лейблы, если в скобках ничего не указывать - применится ко всем лейблам в приложении
+        //если делаем запись в скобках - меняем шрифты для конкретного класса
+         let labelAppearance = UILabel.appearance(whenContainedInInstancesOf: [LoginViewController.self])
+        // зададим шрифт
+        labelAppearance.font = .italicSystemFont(ofSize: 16)
+        labelAppearance.textColor = .magenta
+    }
+    
+    
+    
 
     // MARK: UISceneSession Lifecycle
 
